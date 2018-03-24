@@ -1,6 +1,6 @@
 {
   "name": "lottie-wc",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Provides <lottie-animation>, a simple web component to use lottie animations by Airbnb",
   "main": "dist/lottie.js",
   "types": "dist/types/index.d.ts",
