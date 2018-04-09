@@ -9,6 +9,13 @@ export class LottieAnimation {
   @Element() element: HTMLElement;
   @Element() progress: HTMLElement;
 
+  /**
+   * input the lottie data directly to the component
+   */
+  @Prop() animationData: string;
+  /**
+   * Get the animation via src attribute
+   */
   @Prop() src: string;
   @Prop() loop: boolean;
   @Prop() count: number;
@@ -130,13 +137,15 @@ export class LottieAnimation {
     return this.lottie;
   }
 
+  /**
+    Renders the settings object and checks if the data is added via src or animationData element
+   */
   @Method()
   update(settings) {
-    this.settings = {
+    const settingsObj: any = {
       renderer: this.renderer,
       loop: this.count ? this.count : this.loop,
       autoplay: this.autoplay,
-      path: this.src,
       rendererSettings: {
         scaleMode: 'noScale',
         clearCanvas: false,
@@ -145,6 +154,12 @@ export class LottieAnimation {
       },
       ...settings
     };
+    if(this.animationData) {
+      settingsObj.animationData = this.animationData;
+    } else {
+      settingsObj.path = this.src;
+    }
+    this.settings = settingsObj;
   }
 
   handleProgressClick(e) {
