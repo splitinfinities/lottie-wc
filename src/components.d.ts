@@ -45,6 +45,10 @@ declare global {
   }
   namespace JSXElements {
     export interface LottieAnimationAttributes extends HTMLAttributes {
+      /**
+       * input the lottie data directly to the component
+       */
+      'animationData'?: string;
       'autoplay'?: boolean;
       'controls'?: boolean;
       'count'?: number;
@@ -52,6 +56,9 @@ declare global {
       'loop'?: boolean;
       'renderer'?: string;
       'speed'?: number;
+      /**
+       * Get the animation via src attribute
+       */
       'src'?: string;
       
     }
